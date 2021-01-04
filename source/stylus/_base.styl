@@ -1,0 +1,80 @@
+
+h1, h2, h3, h4, h5, h6, p, ul, li
+	margin 0
+	padding 0
+
+ul
+	display block
+
+html, body
+	font-family 'Open Sans', sans-serif
+	font-size 13px
+	background-color #fff
+	position relative
+	line-height 1.4
+	cursor default
+	height 100%
+
+body
+	min-width 320px
+	color #062033
+
+
+.socials
+	text-align center
+
+	a
+		display inline-block
+		width 30px
+		height 30px
+		color #fff
+		opacity .5
+		font-size 19px
+		line-height @width
+		transition opacity .3s
+		text-decoration none
+
+		&:hover
+			opacity 1
+
+a
+	text-decoration none
+	color inherit
+
+.owl-pagination
+	padding-top 50px
+
+.owl-theme .owl-controls .owl-page
+
+	&.active, &:hover
+		span
+			opacity 1
+			background #062033
+
+	span
+		border-radius 50%
+		border 1px solid #062033
+		width 10px
+		height @width
+		opacity .5
+		margin 0 6px
+		background transparent
+		transition opacity .3s, background .3s
+
+.logotype
+	font-family 'Pacifico'
+	font-size 28px
+	text-decoration none
+	color #fff
+	display inline-block
+
+.clearfix
+
+	&:after
+		content ""
+		display table
+		height 0
+		width 0
+		clear both
+		visibility hidden
+

@@ -1,0 +1,96 @@
+
+
+grid-count = 12
+row-padding = 5px
+main-fs = 16px
+
+conf = {
+	'xs': { 'min-width': 0, 'row-width': 100% },
+	'sm': { 'min-width': 641px, 'row-width': 640px },
+	'md': { 'min-width': 1025px, 'row-width': 980px },
+	'lg': { 'min-width': 1225px, 'row-width': 1150px },
+}
+
+
+html, body
+	margin 0
+
+*, *:after, *:before
+	box-sizing border-box
+
+.row
+	margin-left auto
+	margin-right auto
+
+.row-full
+	width 100%
+
+.row, .row-full
+	display table
+	font-size 0
+	padding-left row-padding
+	padding-right row-padding
+
+	&.row-no-padd
+		padding-left 0
+		padding-right 0
+
+
+.row:after,
+.row-full:after,
+.clearfix:after
+	content ""
+	clear both
+	display table
+	height 0
+	font-size 0
+	visibility hidden
+
+.col
+	font-size main-fs
+	display inline-block
+	position relative
+	vertical-align top
+
+	&.col-mb
+		margin-bottom 20px
+
+
+grid(name)
+
+	for i in (0..grid-count)
+
+		if i != 0
+			.{name}-{i}
+				width ( 100% / grid-count ) * i
+
+		.{name}-pull-{i}
+			right ( 100% / grid-count ) * i
+
+		.{name}-push-{i}
+			left ( 100% / grid-count ) * i
+
+		.{name}-offset-{i}
+			margin-left ( 100% / grid-count ) * i
+
+	.{name}-pull-0
+		right 0
+
+	.{name}-push-0
+		left 0
+
+	.{name}-mb
+		margin-bottom 10px
+
+	.{name}-offset-0
+		margin-left 0
+
+
+for name in conf
+	t = conf[name]
+
+	@media only screen and (min-width: t['min-width'])
+		.row
+			width t['row-width']
+
+		grid(name)
